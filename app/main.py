@@ -10,6 +10,9 @@ def get_clean_data():
     data = data.drop(['Unnamed: 32', 'id'], axis=1, errors='ignore')
     data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0})
 
+    # Clean column names - replace spaces with underscores
+    data.columns = data.columns.str.replace(' ', '_')
+
     # Debugging: Print available columns
     st.sidebar.write("Dataset columns:", list(data.columns))
 
@@ -153,30 +156,22 @@ def add_predictions(input_data):
 
     st.subheader("Cell Cluster Prediction")
     st.write("The Cluster is:")
-    if prediction[0] ==0:
-        st.write("<span class='diagnosis benign'>Benign</span>",unsafe_allow_html=True)
+    if prediction[0] == 0:
+        st.write("<span class='diagnosis benign'>Benign</span>", unsafe_allow_html=True)
     else:
-        st.write("<span class='diagnosis Malicious'>Malicious</span>",unsafe_allow_html=True)
+        st.write("<span class='diagnosis malignant'>Malignant</span>", unsafe_allow_html=True)
 
-    st.write("Probability of being benign:",model.predict_proba(input_array_scaled)[0][0])
-    st.write("Probability of being Malicious:",model.predict_proba(input_array_scaled)[0][1])
-    st.write("(This app can assist medical professional in making a dignosis,but should not be used as a sustitue for a professiional diagnosis.)")
-    st.write(input_array_scaled)
-
-
-    # Scale input data
-    input_scaled = scaler.transform(input_array)
-
-    # Make prediction
-    prediction = model.predict(input_scaled)
-    diagnosis = "Malignant" if prediction[0] == 1 else "Benign"
+    st.write("Probability of being benign:", model.predict_proba(input_array_scaled)[0][0])
+    st.write("Probability of being malignant:", model.predict_proba(input_array_scaled)[0][1])
+    st.write("(This app can assist medical professional in making a diagnosis, but should not be used as a substitute for a professional diagnosis.)")
 
     # Display prediction in the main view
+    diagnosis = "Malignant" if prediction[0] == 1 else "Benign"
     st.subheader(f"🔬 Predicted Diagnosis: **{diagnosis}**")
 
     # Display processed NumPy array in the sidebar for debugging
     st.sidebar.subheader("📊 Processed Input Array:")
-    st.sidebar.write(input_scaled)
+    st.sidebar.write(input_array_scaled)
 
 # Main function
 def main():
@@ -194,7 +189,7 @@ def main():
     )
 
     with open("assests/style.css") as f:
-     st.markdown("<style>{}</style>".format(f.read()),unsafe_allow_html=True)
+     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
     input_data = add_sidebar()
     radar_chart = get_radar_chart(input_data)
