@@ -1,5 +1,7 @@
 🩺 streamlit-cancer-predict — AI Powered Cancer Prediction System
 
+
+
 Predict whether a tumor is Benign or Malignant using Machine Learning and an interactive Streamlit web application.
 
 Built using:
@@ -77,12 +79,7 @@ streamlit-cancer-predict/
 📌 Model Serialization
 📌 Training & Prediction Pipeline
 
-🤖 Possible Algorithms Used
-    Logistic Regression
-     Random Forest
-   Support Vector Machine (SVM)
-    Decision Tree
-    
+
 📊 Prediction Process
   User Inputs Medical Parameters
              ↓
@@ -150,18 +147,7 @@ Better UI design
 Patient history tracking
 Data visualization dashboard
 
-💡 Learning Outcomes
 
-Through this project, I learned:
-
-Machine Learning workflow
-Feature engineering
-Data preprocessing
-Model training & evaluation
-Streamlit web development
-Model deployment
-Serialization using Pickle
-Building end-to-end ML applications
 
 
 👨‍💻 Author
