@@ -70,11 +70,16 @@ streamlit-cancer-predict/
 1. Clone Repository
    git clone https://github.com/keerthichittepu/streamlit-cancer-predict.git
 
+
 2. Navigate to Project Folder
    cd streamlit-cancer-predict
+
+   
    
 4. Install Dependencies
    pip install -r requirements.txt
+
+   
 
 ▶️ Run Application
     streamlit run app.py
