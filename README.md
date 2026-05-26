@@ -86,16 +86,15 @@ streamlit-cancer-predict/
     After running, Streamlit will automatically open the application in your browser.
 
 
-📈 Algorithms Used
-      Logistic Regression
-      Random Forest
+📈 Algorithms Used are Logistic Regression, 
+      Random Forest,
       Support Vector Machine (SVM)
 
 📌 Use Cases
-       Educational ML projects
-       Healthcare prediction systems
-       AI-powered diagnosis support
-       Streamlit deployment learning
+       1.Educational ML projects
+       2.Healthcare prediction systems
+       3.AI-powered diagnosis support
+       4.Streamlit deployment learning
 
   👨‍💻 Author
 Chittepu Sree Keerthi Reddy
